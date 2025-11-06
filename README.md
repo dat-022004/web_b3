@@ -17,21 +17,26 @@ Kiểm tra: Mở Docker Desktop để xác nhận 6 container đã được tạ
 
  3. Ảnh này chụp Docker Desktop. Nó giúp em xác nhận một cách trực quan là cả 6 container của em đều đang "Running" (màu xanh lá) và các cổng đã được map chính xác (ví dụ 1880:1880, 8081:80, 3000:3000...). Môi trường của em đã sẵn sàng.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fb2ac89f-819a-46f4-9ff5-30c15735295f" />  
-
-4. Đây là ảnh em truy cập http://localhost:8080 (PhpMyAdmin). Nó chứng minh em đã kết nối được vào CSDL MariaDB. Em đã tạo my_database và bên trong có 2 bảng quan trọng:  
-iot_latest: Để lưu giá trị cảm biến mới nhất.  
-users: Để làm chức năng đăng nhập.  
+ 
+4. Đây là ảnh chụp màn hình khi em truy cập vào http://localhost:8086.  
+Nội dung: Giao diện "Get Started" của InfluxDB phiên bản 2 (v2.7.12), cho thấy các tùy chọn để kết nối (Python, Node.js, CLI, v.v.).  
+Ý nghĩa: Điều này xác nhận container influxdb của em đã chạy thành công. Đây là CSDL chuyên dụng em dùng để lưu trữ toàn bộ lịch sử dữ liệu cảm biến (time-series data). Dữ liệu này sau đó sẽ được Grafana (ở bước sau) kết nối vào để vẽ biểu đồ.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/65e730ce-32cc-4a0c-b14f-8614fd9595c2" />  
 
-5. Em truy cập http://localhost:8086 để kiểm tra container influxdb. Giao diện "Get Started" hiện ra, chứng tỏ dịch vụ đã chạy. Đây là nơi em sẽ lưu lịch sử dữ liệu cảm biến để chuẩn bị cho Grafana vẽ biểu đồ.  
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cac7495b-eef4-438b-ba38-6fdea73b2369" />  
-
-6. Ảnh này em truy cập Grafana tại http://dangdinhdat.com:3000.  
+6.Ảnh này em truy cập Grafana tại http://dangdinhdat.com:3000.  
 Nội dung: Giao diện "Welcome to Grafana".  
 Ý nghĩa: Xác nhận container grafana đã chạy và sẵn sàng để kết nối vào InfluxDB (ở ảnh 5) để vẽ biểu đồ.  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cac7495b-eef4-438b-ba38-6fdea73b2369" />  
+
+7.Đây là "não" của hệ thống, em truy cập Node-RED tại http://dangdinhdat.com:1880.  
+Nội dung: Flow logic xử lý IOT và API.  
+Ý nghĩa: Chứng minh em đã hoàn thành backend:  
+Luồng Sim IOT: Inject (Every 3s) -> Function (tạo nhiệt độ) -> Ghi song song vào 2 CSDL (MariaDB và InfluxDB).  
+Luồng API: Tạo API POST /authen/login và GET /iot/latest (có bảo mật auth check).  
+Thông báo "Successfully deployed" cho thấy flow đã được lưu và đang chạy.   
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/31d9c4db-0d0b-44fc-831d-6e78cb339af7" />   
 
-7. Đây là "não" của hệ thống, em truy cập Node-RED tại http://dangdinhdat.com:1880.  
+8. Đây là "não" của hệ thống, em truy cập Node-RED tại http://dangdinhdat.com:1880.  
 Nội dung: Flow logic xử lý IOT và API.  
 Ý nghĩa: Chứng minh em đã hoàn thành backend:  
 Luồng Sim IOT: Inject (Every 3s) -> Function (tạo nhiệt độ) -> Ghi song song vào 2 CSDL (MariaDB và InfluxDB).  
@@ -39,7 +44,7 @@ Luồng API: Tạo API POST /authen/login và GET /iot/latest (có bảo mật a
 Thông báo "Successfully deployed" cho thấy flow đã được lưu và đang chạy.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5936cee5-0dde-454d-b734-968b1b0b9f28" />  
 
-8. Đây là 2 ảnh chụp kết quả cuối cùng, là trang web của em chạy trên http://localhost:8081 (cổng nginx).  
+9. Đây là 2 ảnh chụp kết quả cuối cùng, là trang web của em chạy trên http://localhost:8081 (cổng nginx).  
 Nội dung: Giao diện web IOT hiển thị đã đăng nhập ("Xin chào, dat"), token, và dữ liệu nhiệt độ.  
 Ý nghĩa: Chứng minh sự tích hợp thành công:  
 nginx đang phục vụ file web.  
