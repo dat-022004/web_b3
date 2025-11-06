@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>IoT Test - dangdinhdat.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/dangdinhdat.css" />
+</head>
+<body>
+  <header>
+    <h1>Kiểm tra API IoT (Node-RED)</h1>
+    <div id="auth-area">
+      <div id="login-form">
+        <input type="text" id="username" placeholder="Tên đăng nhập (dat)" />
+        <input type="password" id="password" placeholder="Mật khẩu (2004)" />
+        <button id="btn-login">Đăng nhập</button>
+      </div>
+      <div id="user-info" style="display:none">
+        <span id="welcome"></span>
+        <button id="btn-logout" class="secondary">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Token hiện tại</h2>
+      <div class="row">
+        <input id="token" readonly placeholder="Chưa có token. Hãy đăng nhập." />
+        <button id="btn-copy" class="secondary">Copy</button>
+      </div>
+      <div class="hint">Lưu ý: Token được lưu trong cookie và ô phía trên để bạn tiện test qua cURL/Postman.</div>
+    </section>
+
+    <section class="panel">
+      <h2>Lấy dữ liệu mới nhất (/api/iot/latest)</h2>
+      <div class="row">
+        <button id="btn-fetch">Gọi API ngay</button>
+        <label class="switch">
+          <input type="checkbox" id="auto-refresh" checked />
+          <span class="slider"></span>
+        </label>
+        <span>Tự làm mới mỗi 3 giây</span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="label">Nhiệt độ</div>
+          <div class="value" id="temperature">--</div>
+        </div>
+        <div class="card">
+          <div class="label">Cập nhật lúc</div>
+          <div class="value" id="updated_at">--</div>
+        </div>
+        <div class="card">
+          <div class="label">Trạng thái</div>
+          <div class="value" id="status">idle</div>
+        </div>
+      </div>
+      <details class="raw">
+        <summary>Xem JSON thô trả về</summary>
+        <pre id="raw"></pre>
+      </details>
+    </section>
+
+    <section class="panel">
+      <h2>Grafana (tùy chọn)</h2>
+      <div class="row">
+        <input id="grafana-url" placeholder="/grafana/d/<uid>/<slug>?orgId=1&kiosk&viewPanel=1" />
+        <button id="btn-open-grafana" class="secondary">Mở trong iframe</button>
+      </div>
+      <div class="iframe-box" id="grafana-box" style="display:none">
+        <iframe id="grafana-frame" src="" frameborder="0"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Backend: Node-RED qua Nginx (/api). Refresh 3s để khớp luồng giả lập.</small>
+  </footer>
+
+  <script src="/dangdinhdat.js"></script>
+</body>
+</html>
