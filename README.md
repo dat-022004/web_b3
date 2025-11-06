@@ -36,12 +36,9 @@ Luồng API: Tạo API POST /authen/login và GET /iot/latest (có bảo mật a
 Thông báo "Successfully deployed" cho thấy flow đã được lưu và đang chạy.   
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/31d9c4db-0d0b-44fc-831d-6e78cb339af7" />   
 
-8. Đây là "não" của hệ thống, em truy cập Node-RED tại http://dangdinhdat.com:1880.  
-Nội dung: Flow logic xử lý IOT và API.  
-Ý nghĩa: Chứng minh em đã hoàn thành backend:  
-Luồng Sim IOT: Inject (Every 3s) -> Function (tạo nhiệt độ) -> Ghi song song vào 2 CSDL (MariaDB và InfluxDB).  
-Luồng API: Tạo API POST /authen/login và GET /iot/latest (có bảo mật auth check).  
-Thông báo "Successfully deployed" cho thấy flow đã được lưu và đang chạy.  
+8. Đây là ảnh em truy cập http://dangdinhdat.com:8080 (PhpMyAdmin). Nó chứng minh em đã kết nối được vào CSDL MariaDB. Em đã tạo my_database và bên trong có 2 bảng quan trọng:  
+iot_latest: Để lưu giá trị cảm biến mới nhất.  
+users: Để làm chức năng đăng nhập.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5936cee5-0dde-454d-b734-968b1b0b9f28" />  
 
 9. Đây là 2 ảnh chụp kết quả cuối cùng, là trang web của em chạy trên http://localhost:8081 (cổng nginx).  
