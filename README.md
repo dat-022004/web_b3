@@ -1,7 +1,12 @@
 # web_b3
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4689804e-ea9e-488d-ad70-a96272ed1408" />
+1. Khởi tạo Môi trường  
+Bắt đầu dự án bằng cách mở Terminal WSL (Ubuntu) trong thư mục dự án dinhdat-shot và khởi động VS Code (code .).  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4689804e-ea9e-488d-ad70-a96272ed1408" />  
 
-
+2. Cài đặt & Khởi chạy Docker (ảnh image_ce1226.jpg & image_ce1242.jpg)  
+Định nghĩa Dịch vụ: Cấu hình file docker-compose.yml để định nghĩa toàn bộ 6 dịch vụ theo yêu cầu: phpmyadmin, mariadb, nodered, influxdb, grafana, và nginx.  
+Khởi chạy: Chạy lệnh docker-compose up -d trong terminal của VS Code.  
+Kiểm tra: Mở Docker Desktop để xác nhận 6 container đã được tạo và đang ở trạng thái "Running" (màu xanh lá), chứng tỏ môi trường đã sẵn sàng.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7078ea69-66c1-426c-a375-e9299835829e" />
 
  
