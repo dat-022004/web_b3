@@ -9,7 +9,7 @@ Khởi chạy: Chạy lệnh docker-compose up -d trong terminal của VS Code.
 Kiểm tra: Mở Docker Desktop để xác nhận 6 container đã được tạo và đang ở trạng thái "Running" (màu xanh lá), chứng tỏ môi trường đã sẵn sàng.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7078ea69-66c1-426c-a375-e9299835829e" />
 
- 
+ 3. Ảnh này chụp Docker Desktop. Nó giúp em xác nhận một cách trực quan là cả 6 container của em đều đang "Running" (màu xanh lá) và các cổng đã được map chính xác (ví dụ 1880:1880, 8081:80, 3000:3000...). Môi trường của em đã sẵn sàng.3
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fb2ac89f-819a-46f4-9ff5-30c15735295f" />
 
 
